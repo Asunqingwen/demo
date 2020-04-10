@@ -1,0 +1,85 @@
+server:
+  port: 8889
+  servlet:
+    context-path: /mvtech
+  tomcat:
+    uri-encoding: utf-8
+  ssl:
+    key-store: mvtech.p12
+    key-alias: tomcathttps
+    key-store-password: mvtech
+
+spring:
+  profiles:
+    active: prod
+  #数据源1
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mariadb://localhost:3306/mvtech
+    username: root
+    password: root
+  #数据源2
+  second-datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mariadb://localhost:3306/mvtech2
+    username: root
+    password: root
+  #mongoDB数据库
+  data:
+    mongodb:
+      authentication-database: admin
+      database: test
+      host: 127.0.0.1
+      port: 27017
+  #基本连接信息配置
+  redis:
+    #redis集群
+    cluster:
+      ports:
+        - 8001
+        - 8002
+        - 8003
+        - 8004
+        - 8005
+        - 8006
+      database: 0
+      host: 127.0.0.1
+      port: 6379
+      poolConfig:
+        max-total: 0
+        max-idle: 8
+        max-wait-millis: -1
+        min-idle: 0
+#    password: 123
+    #连接池信息配置
+#    jedis:
+#      pool:
+#        max-total: 8
+#        max-idle: 8
+#        max-wait-millis: -1
+#        min-idle: 0
+
+
+my:
+  name: mvtech
+  age: 100
+  favorites:
+    - 足球
+    - 篮球
+    - 排球
+  job:
+    programmer
+  info: name${my.name} age:${my.age}
+
+  secret: ${random.value}
+  number: ${random.int}
+  bignumber: ${random.long}
+  uuid: ${random.uuid}
+  lessthanten: ${random.int(10)}
+  numberinrange: ${random.int[1024,65536]}
+
+#  users:
+#    - name: 张三
+#      age: 20
+#    - name: 李四
+#      age: 200

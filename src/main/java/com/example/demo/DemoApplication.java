@@ -2,12 +2,15 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
 public class DemoApplication {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
-	}
-
+//        SpringApplicationBuilder builder = new SpringApplicationBuilder(DemoApplication.class);
+//        builder.application().setAdditionalProfiles("dev");
+//        builder.run(args);
+    }
 }
